@@ -265,7 +265,7 @@ class HTML_QuickForm extends HTML_Common
                 $this->_submitValues = 'get' == $method? $_GET: $_POST;
                 $this->_submitFiles  = $_FILES;
             }
-            $this->_flagSubmitted = count($this->_submitValues) > 0 || count($this->_submitFiles) > 0;
+            $this->_flagSubmitted = (! empty($this->_submitValues) && count($this->_submitValues) > 0) || (! empty($this->_submitFiles) && count($this->_submitFiles) > 0);
         }
         if ($trackSubmit) {
             unset($this->_submitValues['_qf__' . $formName]);
